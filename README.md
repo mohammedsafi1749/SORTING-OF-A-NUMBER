@@ -99,6 +99,7 @@ END
 ```
 ## OUTPUT(Descending order)
 
+<img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/58396973-e79f-45c6-af34-3b74209c6cee" />
 
 
 ---
