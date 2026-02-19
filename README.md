@@ -1,4 +1,4 @@
-# Exp 2: SORTING OF A NUMBER
+# EXP 2: SORTING OF A NUMBER
 
 ## Aim
 To write and execute an Assembly Language Program for sorting data in Ascending and  descending order using 8051 microcontroller on Keil software.
