@@ -51,7 +51,7 @@ END
 ```
 ## OUTPUT(Ascending order)
 
-
+<img width="1919" height="1199" alt="image" src="https://github.com/user-attachments/assets/44c628fa-a7b7-415e-ad92-3c48ac63fca5" />
 
 ---
 
