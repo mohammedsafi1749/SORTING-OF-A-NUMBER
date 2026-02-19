@@ -1,4 +1,6 @@
-# EXP 2: SORTING OF A NUMBER
+# SORTING OF A NUMBER
+## NAME: MOHAMMED SAFI F
+## REG NO: 212224060156
 
 ## Aim
 To write and execute an Assembly Language Program for sorting data in Ascending and  descending order using 8051 microcontroller on Keil software.
