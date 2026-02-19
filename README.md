@@ -70,37 +70,30 @@ END
 ## Program (Descending order)
 
 ```asm
-ORG 0000H            ; Start program at address 0000H
+ORG 0000H
 
-MOV R4, #04H         ; Outer loop counter (n-1 passes for n=5 elements)
-AGAIN:
-MOV R3, #04H         ; Inner loop counter (n-1 comparisons per pass)
-MOV R0, #30H         ; Point R0 to the first data location (30H)
+        MOV R4,#04H
 
-LOOP1:
-MOV A, @R0           ; Move the first number to Accumulator (A)
-MOV B, A             ; Copy A to B register for comparison
-INC R0               ; Point R0 to the next memory location
-MOV A, @R0           ; Move the next number to Accumulator (A)
+AGAIN:  MOV R3,#04H
+        MOV R0,#30H
 
-CJNE A, B, CONTINUE  ; Compare A and B. If A != B, continue.
-                     ; If A == B, they are already equal, so no swap needed.
+LOOP1:  MOV A,@R0
+        MOV B,A
+        INC R0
+        MOV A,@R0
+        CJNE A,B,CONTINUE
+
 CONTINUE:
-JC SKIP              ; Jump if Carry flag is set (meaning A < B).
-                     ; If A < B, no swap is needed for descending order.
+        JC SKIP
+        MOV @R0,B
+        DEC R0
+        MOV @R0,A
+        INC R0
 
-MOV @R0, B           ; If A >= B, swap: put the larger number (B, which held the original @R0) in the current location (@R0)
-DEC R0               ; Move R0 back to the previous location
-MOV @R0, A           ; Put the smaller number (A, which held the original @R0+1) in the previous location
-INC R0               ; Move R0 back to the current location
+SKIP:   DJNZ R3,LOOP1
+        DJNZ R4,AGAIN
 
-SKIP:
-DJNZ R3, LOOP1       ; Decrement R3, jump to LOOP1 if not zero
-
-DJNZ R4, AGAIN       ; Decrement R4, jump to AGAIN if not zero
-
-STOP:
-SJMP STOP            ; Stop the program (infinite loop)
+STOP:   SJMP STOP
 
 END
 ```
